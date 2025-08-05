@@ -6,6 +6,7 @@ const { useItem, getItems } = require("./item");
 const { getTraits } = require("./trait");
 const { getChamps } = require("./champ");
 const getLatestVersion = require("./version");
+const proxy = require("./proxy");
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.get(`/${prefix}/champs/random`, shopRoll);
 app.get(`/${prefix}/items`, getItems);
 app.post(`/${prefix}/items/use`, useItem);
 app.get(`/${prefix}/traits`, getTraits);
+app.get(`/${prefix}/proxy`, proxy);
 
 app.listen(port, () => {
   console.log(`tft_express listening on http://localhost:${port}`);
